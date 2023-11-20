@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import TaskList from './TaskList';
 import TaskForm from './TaskForm';
 
+
 const TasksManager = () => {
+  const navigate = useNavigate();
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem('tasks');
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
+  
+
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -26,10 +32,14 @@ const TasksManager = () => {
     setTasks(tasks.filter(task => task.id !== taskId));
   };
 
+  <button onClick={() => navigate('/')} className="w-full p-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">Volver al inicio</button>
+
+
   return (
     <div>
       <TaskForm onTaskAdd={addTask} />
       <TaskList tasks={tasks} onTaskClick={toggleTaskCompleted} onRemove={removeTask} />
+      <button onClick={() => navigate('/')} className="w-full p-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">Volver al inicio</button>
     </div>
   );
 };
