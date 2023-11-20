@@ -24,10 +24,10 @@ Una sencilla aplicación web de lista de tareas desarrollada en React con Vite, 
 
 ## Capturas de Pantalla
 
-![Captura de Pantalla 1](/screenshots/screenshot1.png)
+![Captura de Pantalla 1](./screenshot1.png)
 *Descripción opcional de la captura de pantalla.*
 
-![Captura de Pantalla 2](/screenshots/screenshot2.png)
+![Captura de Pantalla 2](./screenshot2.png)
 *Descripción opcional de la captura de pantalla.*
 
 ## Instalación
