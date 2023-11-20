@@ -8,6 +8,7 @@ const TaskItem = ({ task, onTaskClick, onRemove }) => {
         {task.name} {task.completed ? '(Completada)' : ''}
       </span>
       <button onClick={() => onRemove(task.id)}>Eliminar</button>
+      <button onClick={() => onTaskClick(task.id)}>Completar</button>
     </li>
   );
 };
