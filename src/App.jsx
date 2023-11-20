@@ -1,11 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TasksManager from './components/TasksManager';
+import Bienvenida from './components/Bienvenida';
 import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <TasksManager />
-    </div>
+    <Router>
+     <Routes>
+       <Route path="/" element={<Bienvenida />} />
+       <Route path="/app" element={<TasksManager />} />
+     </Routes>
+   </Router>
   );
 }
 
