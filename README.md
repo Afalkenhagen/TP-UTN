@@ -22,13 +22,30 @@ Una sencilla aplicación web de lista de tareas desarrollada en React con Vite, 
   - **Componente de Formulario (`TaskForm`):**
     - Agregar nuevas tareas a la lista.
 
+## Requerimientos del Sistema
+
+- Node.js (versión mínima 14.0.0)
+- npm (versión mínima 6.0.0)
+
+## Uso de Tailwind CSS
+
+Esta aplicación utiliza Tailwind CSS para el estilo. Tailwind CSS es una biblioteca de utilidades de CSS que permite construir diseños personalizados sin salir de tu HTML.
+
+## Uso de React Router
+
+Esta aplicación utiliza React Router para la navegación. React Router es una biblioteca de enrutamiento para React. Te permite definir varias rutas para tu aplicación y renderizar diferentes componentes en función de la ruta actual.
+
+## Persistencia de datos con localStorage
+
+Esta aplicación utiliza localStorage para persistir el estado de las tareas. localStorage es una API web que permite guardar datos en el navegador del usuario. Los datos guardados en localStorage persisten incluso después de que el usuario cierra y vuelve a abrir el navegador.
+
 ## Capturas de Pantalla
 
 ![Captura de Pantalla 1](./screenshot1.png)
-*Descripción opcional de la captura de pantalla.*
+*Pantalla de Bienvenida.*
 
 ![Captura de Pantalla 2](./screenshot2.png)
-*Descripción opcional de la captura de pantalla.*
+*Pantalla de Tareas.*
 
 ## Instalación
 
