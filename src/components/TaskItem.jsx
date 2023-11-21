@@ -29,13 +29,13 @@ const TaskItem = ({ task, onTaskClick, onRemove }) => {
 };
 
 TaskItem.propTypes = {
-  onTaskClick: PropTypes.func.isRequired,
-  onRemove: PropTypes.func.isRequired,
   task: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
   }).isRequired,
+  onTaskClick: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
 
 export default TaskItem;
