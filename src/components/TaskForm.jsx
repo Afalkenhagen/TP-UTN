@@ -6,12 +6,12 @@ const TaskForm = ({ onTaskAdd }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (taskName.trim() !== '') {
-      onTaskAdd(taskName);
-      setTaskName('');
-    } else {
+    if (!taskName.trim()) {
       alert('¡El nombre de la tarea no puede estar vacío!');
+      return;
     }
+    onTaskAdd(taskName);
+    setTaskName('');
   };
 
   return (

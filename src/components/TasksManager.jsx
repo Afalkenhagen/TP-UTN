@@ -1,45 +1,56 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import TaskList from './TaskList';
 import TaskForm from './TaskForm';
-
 
 const TasksManager = () => {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem('tasks');
-    return savedTasks ? JSON.parse(savedTasks) : [];
+    try {
+      return savedTasks ? JSON.parse(savedTasks) : [];
+    } catch (error) {
+      console.error('Error al analizar el JSON de las tareas:', error);
+      return [];
+    }
   });
-  
-
 
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    try {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    } catch (error) {
+      console.error('Error al guardar las tareas en el almacenamiento local:', error);
+    }
   }, [tasks]);
 
   const addTask = (taskName) => {
-    setTasks([...tasks, { id: tasks.length + 1, name: taskName, completed: false }]);
+    const newTask = {
+      id: tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1,
+      name: taskName,
+      completed: false,
+    };
+    setTasks([...tasks, newTask]);
   };
 
   const toggleTaskCompleted = (taskId) => {
-    setTasks(tasks.map(task => 
+    setTasks(tasks.map((task) =>
       task.id === taskId ? { ...task, completed: !task.completed } : task
     ));
   };
 
   const removeTask = (taskId) => {
-    setTasks(tasks.filter(task => task.id !== taskId));
+    setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
-  <button onClick={() => navigate('/')} className="w-full p-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">Volver al inicio</button>
-
+  const handleNavigate = () => {
+    navigate('/');
+  };
 
   return (
     <div>
       <TaskForm onTaskAdd={addTask} />
       <TaskList tasks={tasks} onTaskClick={toggleTaskCompleted} onRemove={removeTask} />
-      <button onClick={() => navigate('/')} className="w-full p-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">Volver al inicio</button>
+      <button onClick={handleNavigate} className="w-full p-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">Volver al inicio</button>
     </div>
   );
 };

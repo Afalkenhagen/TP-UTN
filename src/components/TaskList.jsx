@@ -10,9 +10,10 @@ const TaskList = ({ tasks, onTaskClick, onRemove }) => {
   }, [tasks]);
 
   const handleTaskClick = (taskId) => {
-    setLocalTasks(localTasks.map(task => 
+    const updatedTasks = localTasks.map(task =>
       task.id === taskId ? { ...task, completed: !task.completed } : task
-    ));
+    );
+    setLocalTasks(updatedTasks);
     onTaskClick(taskId);
   };
 
