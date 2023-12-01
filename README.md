@@ -47,6 +47,10 @@ Esta aplicación utiliza localStorage para persistir el estado de las tareas. lo
 ![Captura de Pantalla 2](./screenshot2.png)
 *Pantalla de Tareas.*
 
+## Deploy Netlify
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5a180dd9-3a6c-44c2-8807-92fa74500ef3/deploy-status)](https://tp-utn.netlify.app/app)
+
+
 ## Instalación
 
 1. Clona este repositorio: `git clone https://github.com/tuusuario/tu-proyecto.git`
